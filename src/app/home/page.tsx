@@ -1,10 +1,11 @@
+// src/app/home/page.tsx
 'use client';
 import { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import SearchBar from '../components/SearchBar';
 import { AddPost } from '../components/AddPost';
 
-interface Post {
+export interface Post {
   id: string;
   title: string;
   content: string;
@@ -22,7 +23,7 @@ export interface PostComment {
 
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [isAddPostOpen, setIsAddPostOpen] = useState<boolean>(false);
+  const [isAddPostOpen, setIsAddPostOpen] = useState<boolean>(false); // State สำหรับการแสดงโมดัล
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -48,7 +49,7 @@ export default function Home() {
   }, []);
 
   const handleAddPostClose = () => {
-    setIsAddPostOpen(false);
+    setIsAddPostOpen(false); // ฟังก์ชันเพื่อปิดโมดัล
   };
 
   return (
@@ -71,12 +72,13 @@ export default function Home() {
           </div>
         </div>
         <button
-          onClick={() => setIsAddPostOpen(true)}
+          onClick={() => setIsAddPostOpen(true)} // เปิดโมดัลเมื่อคลิกปุ่ม
           className='bg-success text-white rounded-lg py-2.5 px-4 border-[1px] border-solid border-success w-[105px] mt-4'
         >
           Create +
         </button>
 
+        {/* แสดงโมดัล AddPost หาก isAddPostOpen เป็น true */}
         {isAddPostOpen && <AddPost onClose={handleAddPostClose} />}
       </div>
     </div>
