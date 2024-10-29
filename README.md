@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+Board_app_Frontend
 
-First, run the development server:
+## ขั้นตอนการติดตั้ง
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+
+2. **ติดตั้ง Dependencies**: เริ่มต้นด้วยการติดตั้งไลบรารีที่จำเป็นทั้งหมด โดยรันคำสั่งต่อไปนี้ในโฟลเดอร์โปรเจค:
+
+   ```bash
+   npm install
+   ```
+
+
+5. **รันแอปพลิเคชัน**: ใช้คำสั่งด้านล่างเพื่อเริ่มแอปพลิเคชันในโหมดพัฒนา:
+
+   ```bash
+   npm run start
+   ```
+
+## ภาพรวมการออกแบบของ Application Architecture
+
+ฟีเจอร์หลัก
+- การลงทะเบียนและเข้าสู่ระบบ: user สามารถลงทะเบียนบัญชีใหม่และเข้าสู่ระบบเพื่อเข้าถึงฟีเจอร์ต่าง ๆ ของแอปพลิเคชัน
+- สร้างโพสต์: user สามารถสร้างโพสต์ใหม่ๆ
+- ระบบแสดงความคิดเห็น: uesr สามารถแสดงความคิดเห็นในโพสต์
+
+
+- Frontend: ใช้ Next.js และ React ในการสร้าง UI โดยใช้ Tailwind CSS สำหรับการจัดการสไตล์
+- Backend: มีการใช้ NestJS และ Express สำหรับการจัดการ API และฐานข้อมูล
+- State Management: ใช้ React hooks เช่น useState และ useEffect เพื่อจัดการสถานะของแอปพลิเคชัน
+- การสื่อสารกับ API: ใช้ fetch สำหรับการเรียก API ไปฝั่ง backend ผ่าน cors
+
+
+## รายการ Libraries/Packages ที่ใช้พร้อมคำอธิบาย
+
+- Pages: สำหรับหน้าต่าง ๆ ของแอปพลิเคชัน เช่น หน้าแรก หน้าเข้าสู่ระบบ และหน้าโพสต์
+- Components: คอมโพเนนต์ย่อยที่ใช้ในหน้า เช่น ปุ่มค้นหา การ์ดโพสต์ และเมนูด้านข้าง
+- State Management: การจัดการสถานะของแอปพลิเคชัน โดยใช้ React hooks เช่น useState และ useEffect
+
+- Libraries หรือ Packages ที่ใช้
+- TypeScript: สำหรับการเขียนโค้ดให้มีความปลอดภัยและชัดเจน
+- Tailwind CSS: สำหรับการจัดการสไตล์ CSS
+- React Router: สำหรับการจัดการการนำทางในแอปพลิเคชัน
+- SVG : ไฟล์Iconจาก heroIcon
+
+## วิธีการรัน Unit Test
+
+คุณสามารถรันการทดสอบยูนิตได้โดยใช้คำสั่ง:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+หากต้องการรันการทดสอบในโหมดติดตามการเปลี่ยนแปลงให้ใช้คำสั่ง:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run test:watch
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+หรือหากต้องการตรวจสอบความครอบคลุมของการทดสอบให้ใช้:
 
-## Learn More
+```bash
+npm run test:cov
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
