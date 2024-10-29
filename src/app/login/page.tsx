@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 
 const Page = () => {
   const [username, setUsername] = useState('');
-  const [error, setError] = useState(''); // สำหรับจัดการข้อความข้อผิดพลาด
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleSignIn = async () => {
@@ -29,10 +29,9 @@ const Page = () => {
 
       router.push('/home');
     } catch (error) {
-      // กำหนดประเภทของ error เป็น Error
       const errorMessage = (error as Error).message || 'เกิดข้อผิดพลาด';
       console.error('เกิดข้อผิดพลาดระหว่างการลงชื่อเข้าใช้:', errorMessage);
-      setError(errorMessage); // ตั้งค่าข้อความข้อผิดพลาด
+      setError(errorMessage);
     }
   };
 
@@ -57,7 +56,6 @@ const Page = () => {
             Sign in
           </div>
           {error && <div className='text-red-500 mb-[20px]'>{error}</div>}{' '}
-          {/* แสดงข้อความข้อผิดพลาด */}
           <div className='flex flex-col gap-[20px]'>
             <input
               type='text'

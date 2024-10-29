@@ -60,7 +60,7 @@ const PostPage = () => {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`, // ใช้ token ที่เก็บใน localStorage
           },
-          body: JSON.stringify({ content: comment }), // ส่งข้อความคอมเมนต์
+          body: JSON.stringify({ content: comment }),
         }
       );
       console.log(response);
@@ -159,7 +159,7 @@ const PostPage = () => {
         <button
           onClick={() => {
             setShowAddComment(true);
-            handleAddComment(); // เรียกใช้ฟังก์ชันเพื่อส่งคอมเมนต์
+            handleAddComment();
           }}
           className='bg-white text-success rounded-lg py-2.5 px-4 border-[1px] border-solid border-success w-[150px] h-[40px] relative leading-[20px] font-ibm-plex-semibold-sm font-semibold ml-4'
         >

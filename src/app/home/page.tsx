@@ -22,7 +22,7 @@ export interface PostComment {
 
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [isAddPostOpen, setIsAddPostOpen] = useState<boolean>(false); // State สำหรับการแสดงโมดัล
+  const [isAddPostOpen, setIsAddPostOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -48,7 +48,7 @@ export default function Home() {
   }, []);
 
   const handleAddPostClose = () => {
-    setIsAddPostOpen(false); // ฟังก์ชันเพื่อปิดโมดัล
+    setIsAddPostOpen(false);
   };
 
   return (
@@ -71,13 +71,12 @@ export default function Home() {
           </div>
         </div>
         <button
-          onClick={() => setIsAddPostOpen(true)} // เปิดโมดัลเมื่อคลิกปุ่ม
+          onClick={() => setIsAddPostOpen(true)}
           className='bg-success text-white rounded-lg py-2.5 px-4 border-[1px] border-solid border-success w-[105px] mt-4'
         >
           Create +
         </button>
 
-        {/* แสดงโมดัล AddPost หาก isAddPostOpen เป็น true */}
         {isAddPostOpen && <AddPost onClose={handleAddPostClose} />}
       </div>
     </div>
