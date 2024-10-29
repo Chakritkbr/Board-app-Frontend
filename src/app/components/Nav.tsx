@@ -1,18 +1,29 @@
 'use client';
 import { useState } from 'react';
-import { MainButton } from './Button';
 import MenuSideBar from './MenuSideBar';
+
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Header() {
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const router = useRouter(); //
 
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
+
+  const handleSignIn = () => {
+    router.push('/path/login');
+  };
 
   return (
     <div className='relative flex flex-row justify-between items-center px-8 bg-green-500 text-white w-full h-[60px]'>
       <div className='font-castoro italic'>a Board</div>
       <div className='flex items-center'>
-        <MainButton text='Sign In' />
+        <Link href='/login'>
+          <button className='hidden md:block bg-success text-white rounded-lg py-2.5 px-4 border-[1px] border-solid border-success w-[105px] relative leading-[20px] font-ibm-plex-semibold-sm font-semibold'>
+            Sign in
+          </button>
+        </Link>
         <div className='md:hidden rounded-lg overflow-hidden flex flex-row items-center justify-center p-2'>
           <button onClick={toggleSidebar}>
             <svg
